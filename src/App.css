@@ -4,7 +4,7 @@
 }
 
 body{
-  background: gray;
+  background: black;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -36,4 +36,7 @@ nav a:hover{
 .logo{
   font-weight: bolder;
   color:rgb(109, 230, 230);
+}
+img{
+  max-width: 100%;
 }
