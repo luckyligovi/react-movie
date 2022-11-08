@@ -2,7 +2,7 @@ import React from "react";
 
 function MusicDetails(){
     return(
-       <div></div> 
+       <div> </div> 
     );
 }
 export default MusicDetails
