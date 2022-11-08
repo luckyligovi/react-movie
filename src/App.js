@@ -1,10 +1,14 @@
 import './App.css';
 import Navbar from './Components/Navbar';
+import MusicCard  from './Components/MusicCard';
 
 function App() {
 
     return (
-        <Navbar/>
+        <div>
+            <Navbar />
+            <MusicCard />
+        </div>
     )
 }
 

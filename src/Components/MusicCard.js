@@ -3,10 +3,9 @@ import React from "react";
 import MusicDetails from './MusicDetails'
 
 function MusicCard(){
+    // for every song item returned from the api the music details component should be loaded
     return(
-        <div className="musicCard">
-            <MusicDetails />
-        </div>
+        <MusicDetails />  
     ); 
 }
-export default MusicCard
+export default MusicCard;
