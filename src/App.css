@@ -8,6 +8,10 @@ body{
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.wrapper {
+  display: grid;
+  grid-gap: 1rem;
+}
 
 a{
   text-decoration: none;
@@ -39,4 +43,8 @@ nav a:hover{
 }
 img{
   max-width: 100%;
+}
+button{
+  size: medium;
+  font-size: small;
 }
