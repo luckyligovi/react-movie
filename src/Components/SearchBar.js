@@ -8,13 +8,10 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!search) return;
-
     navigate(`/search?q=${search}`);
     setSearch('');
   };
-
   return (
     <div>
       <nav id="searchbar">
@@ -33,5 +30,4 @@ const SearchBar = () => {
     </div>
   );
 };
-
 export default SearchBar;
