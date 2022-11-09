@@ -4,6 +4,13 @@ import { useEffect, useState } from "react";
 import MusicDetails from './MusicDetails'
   
 function MusicCard(){
+    // fetch music data
+    const [songs, setSongs] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:9292/songs').then(res => res.json())
+        .then(data =>setSongs(data));
+    },[])
+
 /*     const [songs, setSongs] = useState([]);
     const [favorite, setFavorite] = useState([])
     const [count, setCount] = useState(0)
@@ -22,9 +29,9 @@ function MusicCard(){
     // for every song item returned from the api the music details component should be loaded
     
     return(
-        <div>
-            <MusicDetails addToFavorite ={addToFavorite}/>
-        </div> 
+    <div className ='wrapper'> 
+        {songs.map(song => <MusicDetails className ="wrapper" key={song.id}  song={song} addToFavorite ={addToFavorite}/>)}
+    </div>
     ); 
 }
 export default MusicCard;
