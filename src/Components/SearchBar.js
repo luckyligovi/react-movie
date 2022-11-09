@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { BiSearch } from 'react-icons/bi';
+//import { BiSearch } from 'react-icons/bi';
 
 const SearchBar = () => {
   const [search, setSearch] = useState('');
@@ -22,8 +22,7 @@ const SearchBar = () => {
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
-          <button type="submit">
-            <BiSearch />
+          <button type="submit">Search
           </button>
         </form>
       </nav>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Favorites() {
     const song = {
-        image : "https://pictures-kenya.jijistatic.com/17577705_20210225-153359_1500x1125.webp",
+        image : "https://bekaboy.com/wp-content/uploads/2021/01/Sukari-VIDEO-640x321.jpg",
         name : "Phocey"
     }
 
