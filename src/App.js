@@ -3,6 +3,7 @@ import react from 'react'
 import Navbar from './Components/Navbar';
 import SearchBar from './Components/SearchBar';
 import MusicCard  from './Components/MusicCard';
+import Favorites from './Components/Favorites';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
             <Navbar />
             <SearchBar />
             <MusicCard />
+            <Favorites />
         </div>
     )
 }
