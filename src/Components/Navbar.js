@@ -8,7 +8,6 @@ const Navbar = ()=>{
             <NavLink className="logo">Muziki</NavLink>
             <NavLink>Home</NavLink>
             <NavLink>Favorites</NavLink>
-            <NavLink>SearchBar</NavLink>
             </nav>
         </div>
     )
