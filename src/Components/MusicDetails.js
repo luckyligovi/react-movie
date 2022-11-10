@@ -8,7 +8,7 @@ const MusicDetails = ({deleteSong}) => {
     const history = useHistory();
 
     useEffect(()=>{
-        fetch(`https://my-musiq-app.herokuapp.com/music/${id}`)
+        fetch(`http://localhost:9292/songs/${id}`)
         .then(response => response.json())
         .then(setSong);
     }, [id])
@@ -16,7 +16,7 @@ const MusicDetails = ({deleteSong}) => {
     if (!song) return <h2>Loading...</h2>;
 
     const handleDelete = () => {
-      fetch(`https://my-musiq-app.herokuapp.com/music/${id}`, {
+      fetch(`http://localhost:9292/songs/${id}`, {
         method: "DELETE"
       })
       .then(() => history.push('/browse'))
@@ -24,16 +24,14 @@ const MusicDetails = ({deleteSong}) => {
     }
 
 
-    const artists = song.artists.map((artist) =>{
-        return <span key={artist}><h4>{artist}</h4></span>
-    })
+
   return (
     <div className='music-details'>
-        <img src={song.images} alt={song.title}/>
+        <img src={song.img_url} alt={song.title}/>
         <h2> Title: {song.title} </h2>
-        <h3>Genre: Genre</h3>
-        <h3>Album: Album</h3>
-        <h3>Artists Names:</h3>{artists}
+        <h3>Genre: {song.genre_id}</h3>
+        <h3>Album: {song.album_id}</h3>
+        <h3>Artists Names:</h3>{song.artist_id}
         <p>...Lyrics will be made available soon...<br/> Stay connected </p>
         <h2>Reviews</h2>
         <button onClick={handleDelete}>Delete</button>

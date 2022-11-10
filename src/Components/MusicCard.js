@@ -3,10 +3,10 @@ import {Link} from "react-router-dom"
 
 const MusicCard = ({ id, song, updateFavorite }) => {
   
-  const { images, title, subtitle, favorite} = song;
+  const { img_url, title, description, favorite} = song;
 
   const handleFavorite =(favorite) => {
-    fetch(`https://my-musiq-app.herokuapp.com/music/${id}`, {
+    fetch(`http://localhost:9292/songs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type":"application/json"
@@ -20,9 +20,9 @@ const MusicCard = ({ id, song, updateFavorite }) => {
   return (
     <>
         <div className='music-card'>
-            <img src={images} alt="Ops! Nothing to show"/>
+            <img src={img_url} alt="Ops! Nothing to show"/>
             <h4> {title} </h4>
-            <h5>{subtitle} </h5>
+            <h5>{description} </h5>
             <div>
               <label>Favorite?</label>
               <input 
@@ -31,7 +31,7 @@ const MusicCard = ({ id, song, updateFavorite }) => {
                 checked={favorite}/>
             </div>
             <p>Rating *</p>
-            <p><Link to={`/songs/${id}`}> See Details</Link></p>
+            <p><Link to={`/songs/${id}`}> See Detailss</Link></p>
         </div>
     </>    
   )
