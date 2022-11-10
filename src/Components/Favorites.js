@@ -8,9 +8,10 @@ function Favorites() {
 
     return (
     <div>
-        <h1>Favorite music</h1>
+        <h1 className="fav-h1"> Favorite music</h1>
         <p>{song.name}</p>
-        <img src={song.image} alt="phoncey album" />
+        <img className="fav-img" src={song.image} alt="phoncey album" />
+        
     </div>
     );
   }
