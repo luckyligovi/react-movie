@@ -5,7 +5,7 @@ const AddMusic = () => {
 
   const [images, setImages] = useState("");
   const [title, setTitle] =  useState("");
-  const [subtitle, setSubtitle] = useState("");
+  const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("");
   const [album, setAlbum] = useState("");
   const [artists, setArtists] = useState(["Ops! Artists name not available."]);
@@ -20,14 +20,16 @@ const AddMusic = () => {
     const musicObj = { 
       images: images,
       title: title,
-      subtitle: subtitle,
+      description
+      : description
+      ,
       genre: genre,
       album: album,
       artists: artists,
       favorite: favorite
     }
 
-    fetch("https://my-musiq-app.herokuapp.com/music", {
+    fetch("http://localhost:9292/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,12 +58,15 @@ const AddMusic = () => {
           placeholder='Music title' 
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Subtitle:</label>
+        <label>description
+          :</label>
         <input 
           type="text" 
-          name="subtitle" 
+          name="description
+          " 
           placeholder='artists e.g. Rihana & Beyonce' 
-          onChange={(e) => setSubtitle(e.target.value)}
+          onChange={(e) => setDescription
+            (e.target.value)}
         />
         <label>Genre:</label>
         <input 
