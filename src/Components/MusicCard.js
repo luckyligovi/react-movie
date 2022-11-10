@@ -1,37 +1,40 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React from 'react'
+import {Link} from "react-router-dom"
 
-import MusicDetails from './MusicDetails'
+const MusicCard = ({ id, song, updateFavorite }) => {
   
-function MusicCard(){
-    // fetch music data
-    const [songs, setSongs] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:9292/songs').then(res => res.json())
-        .then(data =>setSongs(data));
-    },[])
+  const { images, title, subtitle, favorite} = song;
 
-/*     const [songs, setSongs] = useState([]);
-    const [favorite, setFavorite] = useState([])
-    const [count, setCount] = useState(0)
-    useEffect(()=>{
-        fetch('enter backend api').then(res => res.json())
-        .then(data =>setProducts(data));
-    },[]) */
-    
-    function addToFavorite(id){
-/*         const filteredData = songs.filter(el =>el.id ===id)
-        setFavorite((favorite) => favorite.concat(filteredData))
-        setCount((count) =>count +1) */
-        alert('clicky')
-    }
+  const handleFavorite =(favorite) => {
+    fetch(`https://my-musiq-app.herokuapp.com/music/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({favorite: favorite})
+    })
+    .then(res => res.json())
+    .then(data => updateFavorite(data.id, data.favorite))
+   }
 
-    // for every song item returned from the api the music details component should be loaded
-    
-    return(
-    <div className ='wrapper'> 
-        {songs.map(song => <MusicDetails className ="wrapper" key={song.id}  song={song} addToFavorite ={addToFavorite}/>)}
-    </div>
-    ); 
+  return (
+    <>
+        <div className='music-card'>
+            <img src={images} alt="Ops! Nothing to show"/>
+            <h4> {title} </h4>
+            <h5>{subtitle} </h5>
+            <div>
+              <label>Favorite?</label>
+              <input 
+                type="checkbox" 
+                onChange={(e)=> handleFavorite(e.target.checked)}
+                checked={favorite}/>
+            </div>
+            <p>Rating *</p>
+            <p><Link to={`/songs/${id}`}> See Details</Link></p>
+        </div>
+    </>    
+  )
 }
+
 export default MusicCard;

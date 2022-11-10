@@ -1,28 +1,44 @@
-import React from "react";
-import { useState } from "react";
-/* let music ={
-    id:0,
-    img:'https://ralingo.com/wp-content/uploads/2020/05/mejja-okwonkwo.jpg',
-    artist_name:'Major',
-    genre:'genge',
-    rating:5,
-    views :0
-} */
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-function MusicDetails({song, addToFavorite}){
-    //create state to hold the rating
-    const [rating,setRating] = useState(song.rating);
-    const [views, setViews] =useState(song.views);
-    return (
-        <div className ="wrapper">
-            <div>
-                <img src={song.img_url} alt={song.artist_name} className="img-responsive"></img>
-                <button onClick={(e)=>{setRating((rating) =>rating+1)}}> Give a 5★ rating </button>
-                <button onClick={()=>addToFavorite(song.id)}>Add to Favorite</button> 
-                <p>Artist: {song.artist_name} Views: {song.views} Rating:{song.rating}</p> 
-            </div>
-        </div>
-        );
+const MusicDetails = ({deleteSong}) => {
+    const [song, setSong] = useState(null);
+    const { id } = useParams();
+    const history = useHistory();
+
+    useEffect(()=>{
+        fetch(`https://my-musiq-app.herokuapp.com/music/${id}`)
+        .then(response => response.json())
+        .then(setSong);
+    }, [id])
+
+    if (!song) return <h2>Loading...</h2>;
+
+    const handleDelete = () => {
+      fetch(`https://my-musiq-app.herokuapp.com/music/${id}`, {
+        method: "DELETE"
+      })
+      .then(() => history.push('/browse'))
+      deleteSong(id)
+    }
+
+
+    const artists = song.artists.map((artist) =>{
+        return <span key={artist}><h4>{artist}</h4></span>
+    })
+  return (
+    <div className='music-details'>
+        <img src={song.images} alt={song.title}/>
+        <h2> Title: {song.title} </h2>
+        <h3>Genre: Genre</h3>
+        <h3>Album: Album</h3>
+        <h3>Artists Names:</h3>{artists}
+        <p>...Lyrics will be made available soon...<br/> Stay connected </p>
+        <h2>Reviews</h2>
+        <button onClick={handleDelete}>Delete</button>
+    </div>
+  )
 }
-export default MusicDetails
 
+export default MusicDetails;
