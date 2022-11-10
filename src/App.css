@@ -5,67 +5,170 @@
 
 body{
   background: black;
+  font-family: 'Nunito Sans', sans-serif;
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.wrapper {
-  display: grid;
-  grid-gap: 1rem;
 }
 
+.header{
+  display: flex;
+  margin-top: 1em;
+  justify-content: space-around;
+}
+.header h2 a{
+  color: white;
+}
+.header h2 a:hover{
+  color: rgb(8, 136, 241);
+}
 a{
   text-decoration: none;
   cursor: pointer;
 }
-
-nav{
+.nav{
   display: flex;
   justify-content: center;
   color: rgba(255,255,255,.5);
   margin: 0.5em;
 }
-
-nav a{
-  text-decoration: none;
-  cursor: pointer;
-  margin: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-#searchbar input {
-  padding: 0.3rem 2.5rem;
-  border-radius: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  border: none;
-  outline: rgba(255, 255, 255, 0.2) solid 1px;
-  background: rgba(255, 255, 255, 0.05);
-}
-#searchbar form button {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 13px;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 0.1rem 1rem;
-  cursor: pointer;
+.header_logo a{
+  color:rgb(8, 136, 241);
+  font-size: 2rem;
+  font-weight: bold;  
 }
 
-#searchbar form button:hover {
-  background: rgba(161, 112, 112, 0.2);
+nav {
+  text-align: center;
+}
+nav a {
+  font-size: 1.5rem;
+  display: inline-block;
+  transition: 0.1s;
+  margin: 1rem 3rem;
+  color:rgb(162, 161, 167) 
 }
 
 nav a:hover{
-  color:antiquewhite
+  color: rgb(8, 82, 241);
 }
 
-.logo{
-  font-weight: bolder;
-  color:rgb(109, 230, 230);
+nav a.active{
+  color: rgb(8, 70, 241);
 }
-img{
+
+.search{
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0.5rem;
+
+}
+.search:hover{
+  background-color: rgb(233, 218, 247);
+}
+
+.container{
+  margin-block: 1rem;  
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 2rem;
+  min-height: 100vh;
+}
+
+.home{
+  text-align: center;
+  padding-top: 10rem;
+}
+
+.home h1{
+  margin: 2rem;
+  font-size: 3rem;
+}
+.home p{
+  font-size: 2rem;
+}
+
+.music-card{
+  max-width: 400px;
+  height: 510px;
+  border: 2px solid rgba(255,255,255,.5);
+  padding: 10px;
+  text-align: center;
+}
+
+.music-details{
+  border: 2px solid rgba(255,255,255,.5);
+  padding: 10px;
+  text-align: center;
+  max-width: fit-content;
+  margin-left: 40%;
+}
+.music-details h4{
+  color: rgba(255,255,255,.5);
+}
+.music-details p{
+  font-style: italic;
+}
+.music-details button{
+  padding: 3px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.music-card img {
   max-width: 100%;
 }
-button{
-  size: medium;
-  font-size: small;
+.music-card input{
+  cursor: pointer;
+}
+.music-card label{
+  color: rgba(255,255,255,.5);
+  padding-right: 5px;
+  font-style: italic;
+}
+
+.music-card a{
+  color: rgba(255,255,255,.5);
+  text-decoration: underline;
+}
+
+.addform form {
+  margin-left: 25%;
+  margin-top: 10px;
+}
+.addform input{
+  width: 50%;
+  display: block;
+  height: 2rem;
+  padding: 2px;
+  justify-content: center;
+  cursor: pointer;
+}
+.addform button{
+  width: fit-content;
+  height: 2rem;
+  padding: 5px;
+  cursor: pointer;
+  margin: 5px;
+  margin-left: 20%;
+}
+.addform label{
+  padding: 10px;
+  margin-left: 20%;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 900px){
+  .container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .music-card{
+    height: 20rem;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .container{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

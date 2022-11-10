@@ -1,19 +1,21 @@
-import React from "react";
+import React from 'react';
+import MusicCard from './MusicCard';
 
-function Favorites() {
-    const song = {
-        image : "https://bekaboy.com/wp-content/uploads/2021/01/Sukari-VIDEO-640x321.jpg",
-        name : "Phocey"
-    }
-
-    return (
-    <div>
-        <h1>Favorite music</h1>
-        <p>{song.name}</p>
-        <img src={song.image} alt="phoncey album" />
+const Favorites = ({songs, updateFavorite}) => {
+  const musicList = songs.map((song)=>{
+    
+    return <MusicCard
+      key={song.id}
+      song={song}
+      id={song.id} 
+      updateFavorite={updateFavorite}          
+    />
+  })
+  return (
+    <div id="favorites" className='nav_favorites container' >
+        {musicList}
     </div>
-    );
-  }
+  )
+}
 
-  
 export default Favorites;
