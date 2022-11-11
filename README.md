@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Muziki
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Muziki](#react-muziki)
+  - [Preview](#preview)
+  - [Description](#description)
+  - [link](#link)
+  - [Authors(shoppers)](#Shopping-enthusiasts)
+  - [Setup](#setup)
+    - [Running server on terminal](#live-server-on-vscodeoption-2)
+  - [Licenses](#licenses)
+  ## Preview
+![alt text][preview]
 
-## Available Scripts
+## Description
+This is an application used by developers to manage thier music while coding.The users are able to view the list of songs in the website,search for a song using the song name and select songs and add them to their playlist.The artist is able to add their music to the website for others to view.
+## link
+<!-- You can view the live page from [here](https://best-phones.netlify.app) -->
+## Authors
+- Lucky ligovi
+- Gordorn Gichini
+- Jimmy Mutuku
+- Benard Koech
 
-In the project directory, you can run:
+## Setup
+- clone the repo
+    - open the terminal
+- Proceed with the steps below
 
-### `npm start`
+### Live server on terminal
+- open the folder at the terminal
+- run the command 'npm instal'
+- then run 'npm start'
+- this will open a window in your browser at terminal 3000, or otherwise specified.
+- (optional) if you do not have the live server extension installed, install it
+  - installation instructions can be found here: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- You can now view the app in the browser at [Muziki](http://localhost:3000)
+## Licenses
+This project is licensed under the [BSD 2-Clause License ](./LICENSE)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Copyright (c) 2022 Lucky ligovi 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- [preview]: ./src/components/assets/images/splash.png "preview"  -->
