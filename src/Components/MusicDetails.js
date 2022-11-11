@@ -8,7 +8,7 @@ const MusicDetails = ({deleteSong}) => {
     const history = useHistory();
 
     useEffect(()=>{
-        fetch(`http://localhost:9292/songs/${id}`)
+        fetch(`htp://localhost:9292/songs/${id}`)
         .then(response => response.json())
         .then(setSong);
     }, [id])
