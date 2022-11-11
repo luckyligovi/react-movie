@@ -12,10 +12,8 @@ const MusicDetails = ({deleteSong}) => {
     const { id } = useParams();
     const history = useHistory();
 
-    console.log(artist, genre, album)
-
     useEffect(()=>{
-        fetch(`htp://localhost:9292/songs/${id}`)
+        fetch(`http://localhost:9292/songs/${id}`)
         .then(response => response.json())
         .then(setSong);
     }, [id])
