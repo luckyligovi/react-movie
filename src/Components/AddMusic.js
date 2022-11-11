@@ -65,8 +65,7 @@ const AddMusic = () => {
           name="description
           " 
           placeholder='artists e.g. Rihana & Beyonce' 
-          onChange={(e) => setDescription
-            (e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <label>Genre:</label>
         <input 

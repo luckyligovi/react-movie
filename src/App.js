@@ -13,22 +13,26 @@ function App() {
 
   const [songs, setSongs] = useState([]);
   const [show, setShow] = useState(false);
-  const [endPoint, setEndPoint] = useState('');
+  const [query, setQuery] = useState("")
 
   useEffect(()=>{
-    fetch(`http://localhost:9292/songs?q=${endPoint}`)
-    .then(response => response.json())
-    .then(setSongs);
-  }, [endPoint])
+    const fetchData = () => {
+      fetch(`http://localhost:9292/songs?q=${query}`)
+      .then(response => response.json())
+      .then(setSongs);
+    };
 
-  const onChangeHandler = (e) => {
-    console.log("Searching...");
-    setEndPoint(e.target.value.toLowerCase())
-  }
+    if (query.length === 0 || query.length > 2) fetchData();
+
+  }, [query])
+
+
+
 
   const submitHandler = (e) => {
+    console.log("clicked")
     e.preventDefault();
-    setEndPoint("");
+    setQuery("");
   }
   const updateFavorite = (id, favorite) => {
     setSongs(songs.map(song => id === song.id ? {...song, favorite} : song))
@@ -41,8 +45,7 @@ function App() {
   return (
     <div className="App">
       <Header 
-        endPoint={endPoint}
-        onChangeHandler= {onChangeHandler}
+        onSetQuery= {setQuery}
         submitHandler={submitHandler} 
         show={show}
         setShow={setShow} 
