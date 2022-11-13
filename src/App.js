@@ -14,12 +14,15 @@ function App() {
   const [songs, setSongs] = useState([]);
   const [show, setShow] = useState(false);
   const [query, setQuery] = useState("")
-
+  const[search, setSearch]=useState("")
   useEffect(()=>{
     const fetchData = () => {
       fetch(`http://localhost:9292/songs?q=${query}`)
       .then(response => response.json())
-      .then(setSongs);
+      .then((data)=>{
+        console.log(data)
+        setSongs(data)
+      });
     };
 
     if (query.length === 0 || query.length > 2) fetchData();
@@ -48,7 +51,8 @@ function App() {
         onSetQuery= {setQuery}
         submitHandler={submitHandler} 
         show={show}
-        setShow={setShow} 
+        setShow={setShow}
+        setSearch={setSearch} 
       />
       <Navbar setShow={setShow} />
 
@@ -57,7 +61,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/songs" >
-          <Songs songs={songs} updateFavorite={updateFavorite} />
+          <Songs songs={songs} search={search} updateFavorite={updateFavorite} />
         </Route>
         <Route path="/songs/:id" >
           <MusicDetails deleteSong={deleteSong} />
