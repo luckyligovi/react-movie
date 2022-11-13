@@ -2,7 +2,7 @@ import React from "react";
 import Searchbar from "./Searchbar";
 import { NavLink } from "react-router-dom";
 
-const Header = ({ endPoint, onSetQuery, submitHandler, show, setShow }) => {
+const Header = ({ setSearch,endPoint, onSetQuery, submitHandler, show, setShow }) => {
 
     return (
         <header className="header">
@@ -11,6 +11,7 @@ const Header = ({ endPoint, onSetQuery, submitHandler, show, setShow }) => {
             </div>
             {
                 show? <Searchbar 
+                setSearch={setSearch}
                 endPoint = {endPoint} 
                 onSetQuery={onSetQuery} 
                 submitHandler={submitHandler}

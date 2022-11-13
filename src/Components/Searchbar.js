@@ -1,6 +1,10 @@
 import React from 'react';
  
-const Searchbar = ({ endPoint, onSetQuery, submitHandler }) => {
+const Searchbar = ({ endPoint, onSetQuery, submitHandler, setSearch }) => {
+  function handleChange(e){
+    console.log(e.target.value)
+    setSearch(e.target.value)
+  }
   return (
     <div>
         <form onSubmit={submitHandler}>
@@ -10,10 +14,7 @@ const Searchbar = ({ endPoint, onSetQuery, submitHandler }) => {
                 type="text"
                 name="search"
                 placeholder='Music...'
-                onChange={(e) => {
-                  console.log("Searching...")
-                  onSetQuery(e.target.value.toLowerCase())
-                }}
+                onChange={handleChange}
             />
             <button className='search'>Search</button>
         </form>

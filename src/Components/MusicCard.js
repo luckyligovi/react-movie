@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 
 const MusicCard = ({ id, song, updateFavorite }) => {
+  console.log(song)
   
   const { img_url, title, description, favorite} = song;
 
