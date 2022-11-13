@@ -2,7 +2,6 @@ import React from 'react';
  
 const Searchbar = ({ endPoint, onSetQuery, submitHandler, setSearch }) => {
   function handleChange(e){
-    console.log(e.target.value)
     setSearch(e.target.value)
   }
   return (
