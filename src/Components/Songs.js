@@ -2,7 +2,6 @@ import React from 'react'
 import MusicCard from "./MusicCard"
 
 const Songs = ({ search, songs, updateFavorite }) => {
-  console.log(songs)
   // console.log(search)
   const filteredSongs= songs.filter((everySong) => everySong.title.toLowerCase().includes(search.toLowerCase()))
 

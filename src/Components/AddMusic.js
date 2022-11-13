@@ -2,45 +2,80 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const AddMusic = () => {
-
   const [images, setImages] = useState("");
   const [title, setTitle] =  useState("");
   const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("");
   const [album, setAlbum] = useState("");
-  const [artists, setArtists] = useState(["Ops! Artists name not available."]);
-  const [favorite, setFavorite] = useState(true);
-
+  const [artistName, setArtistName] = useState("");
+  
   const history = useHistory();
-
-  console.log(setArtists);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // remove the id assignment after created a method in the models to generate id for each instance
+    const albumObj = {
+      id: Math.floor(Math.random() * 100000),
+      name:album
+    };
+    const genreObj = {
+      id: Math.floor(Math.random() * 100000),
+      name: genre
+    };
+    const artistObj = {
+      id: Math.floor(Math.random() * 100000),
+      full_name: artistName
+    }
     const musicObj = { 
-      images: images,
+      id:Math.floor(Math.random() * 100000),
       title: title,
-      description
-      : description
-      ,
-      genre: genre,
-      album: album,
-      artists: artists,
-      favorite: favorite
+      description: description,
+      img_url: images,
+      artist_id: artistObj.id,
+      genre_id: genreObj.id,
+      album_id: albumObj.id
     }
 
-    fetch("http://localhost:9292/songs", {
+    fetch("http://localhost:9292/albums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify(musicObj)
-    })
-    .then(res => res.json())
-    .then(data => history.push(`/songs/${data.id}`))
-  }
+      body: JSON.stringify(albumObj)
+    }).then(res => res.json())
+  
+    fetch("http://localhost:9292/genres", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(genreObj)
+    }).then(res => res.json())
 
+  fetch("http://localhost:9292/artists", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(artistObj)
+  }).then(res => res.json())
+
+
+  fetch("http://localhost:9292/songs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(musicObj)
+  })
+  .then(res => {res.json();
+    alert(musicObj.title + '' + 'added to songs successfuly refresh page to view songs')});
+  }
+  
   return (
     <div className='addform' id="addmusic">
       <form onSubmit={handleSubmit}>
@@ -67,7 +102,7 @@ const AddMusic = () => {
           placeholder='artists e.g. Rihana & Beyonce' 
           onChange={(e) => setDescription(e.target.value)}
         />
-        <label>Genre:</label>
+      <label>Genre:</label>
         <input 
           type="text" 
           name="genre" 
@@ -81,11 +116,12 @@ const AddMusic = () => {
           placeholder='Album name' 
           onChange={(e) => setAlbum(e.target.value)}
         />
-        <label htmlFor='checkbox'>Favorite?</label>
-        <input          
-          type="checkbox" 
-          id="favorite"           
-          onChange={(e) => setFavorite(e.target.checked)}
+        <label>Main Artist:</label>
+        <input 
+          type="text" 
+          name="artistName" 
+          placeholder='Artist name' 
+          onChange={(e) => setArtistName(e.target.value)}
         />
         <button className='addform-input' >Add Music</button>
       </form>

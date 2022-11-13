@@ -33,7 +33,6 @@ function App() {
 
 
   const submitHandler = (e) => {
-    console.log("clicked")
     e.preventDefault();
     setQuery("");
   }
